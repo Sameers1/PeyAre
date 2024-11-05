@@ -44,42 +44,120 @@
     }
 
         .hover-effect:hover {
-            transform: scale(1.05); /* Scale the item by 5% */
+            transform: scale(1.02); /* Scale the item by 5% */
         }
 </style>
 
 @if (cardioPr)
 {
-    <MudPaper Width="300px">
-        <MudList T="string">
-            <MudListItem Text="Inbox" Icon="@Icons.Material.Filled.Inbox" />
-            <MudListItem Text="Sent" Icon="@Icons.Material.Filled.Send" />
-            <MudListItem Text="Drafts" Disabled="true" IconColor="Color.Info" Icon="@Icons.Material.Filled.Drafts" />
-            <MudDivider />
-            <MudListItem Text="Trash" SecondaryText="Removed e-mails" />
-            <MudListItem Text="Spam" SecondaryText="E-mails from common providers" />
-        </MudList>
-    </MudPaper>
+    <MudCard Class="my-4 shadow-lg" Style="background-color: #fff7e6; border-radius: 12px;">
+        <MudCardHeader>
+            <MudText Typo="Typo.h5" Class="font-weight-bold">Cardio</MudText>
+            <MudIcon Icon="@Icons.Material.Filled.FitnessCenter" Color="Color.Primary" />
+        </MudCardHeader>
+        <MudCardContent>
+            <MudText Typo="Typo.body1">
+                <strong>Notes:</strong> Improves cardiovascular endurance, burns calories, and enhances overall fitness. Aim for at least 150 minutes of moderate-intensity or 75 minutes of high-intensity cardio per week.
+            </MudText>
+            <MudText Typo="Typo.body1" Class="mt-2">
+                <strong>Exercises:</strong>
+            </MudText>
+            <MudList T="string" Class="my-2">
+                <MudListItem Class="exercise-item">Running or Jogging</MudListItem>
+                <MudListItem Class="exercise-item">Cycling</MudListItem>
+                <MudListItem Class="exercise-item">Swimming</MudListItem>
+                <MudListItem Class="exercise-item">HIIT (High-Intensity Interval Training)</MudListItem>
+                <MudListItem Class="exercise-item">Jump Rope</MudListItem>
+            </MudList>
+        </MudCardContent>
+    </MudCard>
+
+
+
 }
 else if (bodyPr)
-    {
-<MudProgressCircular Color="Color.Default" Indeterminate="true" />
-<MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-<MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
-<MudProgressCircular Color="Color.Success" Indeterminate="true" />
-<MudProgressCircular Color="Color.Info" Indeterminate="true" />
-    }
-else if(PowerPr)
-    {
-<MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
-<MudProgressCircular Color="Color.Primary" Size="Size.Medium" Indeterminate="true" />
-<MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
-<MudProgressCircular Color="Color.Primary" Style="height:70px;width:70px;" Indeterminate="true" />
-<MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Small" Value="25" />
-<MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Value="50" Class="my-7" />
-<MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Large" Value="75" />
+{
+    <MudCard Class="my-4 shadow-lg" Style="background-color: #fff3e0; border-radius: 12px;">
+        <MudCardHeader>
+            <MudText Typo="Typo.h5" Class="font-weight-bold">Bodybuilding</MudText>
+            <MudIcon Icon="@Icons.Material.Filled.FitnessCenter" Color="Color.Secondary" />
+        </MudCardHeader>
+        <MudCardContent>
+            <MudText Typo="Typo.body1">
+                <strong>Notes:</strong> Focuses on muscle growth and aesthetics; combines resistance training with a structured diet. Training sessions typically occur 4-6 times a week, focusing on different muscle groups.
+            </MudText>
+            <MudText Typo="Typo.body1" Class="mt-2">
+                <strong>Exercises:</strong>
+            </MudText>
+            <MudList T="string" Class="my-2">
+                <MudListItem Class="exercise-item">Bench Press</MudListItem>
+                <MudListItem Class="exercise-item">Squats</MudListItem>
+                <MudListItem Class="exercise-item">Deadlifts</MudListItem>
+                <MudListItem Class="exercise-item">Pull-Ups/Chin-Ups</MudListItem>
+                <MudListItem Class="exercise-item">Bicep Curls and Tricep Extensions</MudListItem>
+            </MudList>
+        </MudCardContent>
+    </MudCard>
+
+
+
+}
+else if (PowerPr)
+{
+    <MudCard Class="my-4 shadow-lg" Style="background-color: #fffde7; border-radius: 12px;">
+        <MudCardHeader>
+            <MudText Typo="Typo.h5" Class="font-weight-bold">Powerlifting</MudText>
+            <MudIcon Icon="@Icons.Material.Filled.FitnessCenter" Color="Color.Info" />
+        </MudCardHeader>
+        <MudCardContent>
+            <MudText Typo="Typo.body1">
+                <strong>Notes:</strong> Aims to increase maximal strength in three main lifts; typically involves lower repetitions and heavier weights. Usually involves 3-5 training sessions per week focusing on technique and strength.
+            </MudText>
+            <MudText Typo="Typo.body1" Class="mt-2">
+                <strong>Exercises:</strong>
+            </MudText>
+            <MudList T="string" Class="my-2">
+                <MudListItem Class="exercise-item">Squat</MudListItem>
+                <MudListItem Class="exercise-item">Bench Press</MudListItem>
+                <MudListItem Class="exercise-item">Deadlift</MudListItem>
+                <MudListItem Class="exercise-item">Overhead Press</MudListItem>
+                <MudListItem Class="exercise-item">Accessory Movements (rows, lunges, dips)</MudListItem>
+            </MudList>
+        </MudCardContent>
+    </MudCard>
+
+
+
+}
+
+<style>
+    .exercise-item {
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
     }
 
+        .exercise-item:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+    .mud-card {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .mud-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+    .mud-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>
 
 
 <style>
@@ -95,7 +173,7 @@ else if(PowerPr)
     private bool bodyPr = false;
     private bool PowerPr = false;
 
-    //  maybe i need to put state has changed 
+    //  maybe i need to put state has changed
     // maybe toggle isnt best for this
     // maybe a condition that if its toggled and other toggle is pressed it reset or something
     private void CardioPrToggle()
