@@ -1,0 +1,109 @@
+﻿@page "/Dashboard"
+
+@using MudBlazor
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Class="pa-4">
+            <MudToggleGroup Class="mud-width-full" T="string" SelectedClass="black white-text">
+                <MudToggleItem Value="@("Basic Edition")">
+                    <div class="mud-width-full mud-height-full">
+                        <div class="d-flex align-center justify-space-between flex-wrap">
+                            <MudText Class="ellipsis">Lose Muscles</MudText>
+                            <MudChip Color="@(context ? Color.Success : Color.Primary)" OnClick="CardioPrToggle" Icon="@(context ? Icons.Material.Filled.Check : "")">Cardio</MudChip>
+                        </div>
+                        <MudText Typo="Typo.subtitle2">DO YOU EVEN GO TO GYM?</MudText>
+                    </div>
+                </MudToggleItem>
+                <MudToggleItem Value="@("Pro Edition")">
+                    <div class="mud-width-full mud-height-full">
+                        <div class="d-flex align-center justify-space-between flex-wrap">
+                            <MudText Class="ellipsis">Build Muscles</MudText>
+                            <MudChip Color="@(context ? Color.Success : Color.Primary)" OnClick="BodyPrToggle" Icon="@(context ? Icons.Material.Filled.Check : "")">BodyBuilding</MudChip>
+                        </div>
+                        <MudText Typo="Typo.subtitle2">I AM STRONG TRUST ME!!</MudText>
+                    </div>
+                </MudToggleItem>
+                <MudToggleItem Value="@("Enterprise Edition")">
+                    <div class="mud-width-full mud-height-full">
+                        <div class="d-flex align-center justify-space-between flex-wrap">
+                            <MudText Class="ellipsis">Build Strength & Muscles</MudText>
+                            <MudChip Color="@(context ? Color.Success : Color.Primary)" OnClick="PowerPrToggle" Icon="@(context ? Icons.Material.Filled.Check : "")">Power lifting</MudChip>
+                        </div>
+                        <MudText Typo="Typo.subtitle2">I LIFT</MudText>
+                    </div>
+                </MudToggleItem>
+            </MudToggleGroup>
+
+
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+
+@if (cardioPr)
+{
+    <MudPaper Width="300px">
+        <MudList T="string">
+            <MudListItem Text="Inbox" Icon="@Icons.Material.Filled.Inbox" />
+            <MudListItem Text="Sent" Icon="@Icons.Material.Filled.Send" />
+            <MudListItem Text="Drafts" Disabled="true" IconColor="Color.Info" Icon="@Icons.Material.Filled.Drafts" />
+            <MudDivider />
+            <MudListItem Text="Trash" SecondaryText="Removed e-mails" />
+            <MudListItem Text="Spam" SecondaryText="E-mails from common providers" />
+        </MudList>
+    </MudPaper>
+}
+else if (bodyPr)
+    {
+<MudProgressCircular Color="Color.Default" Indeterminate="true" />
+<MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+<MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+<MudProgressCircular Color="Color.Success" Indeterminate="true" />
+<MudProgressCircular Color="Color.Info" Indeterminate="true" />
+    }
+else if(PowerPr)
+    {
+<MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
+<MudProgressCircular Color="Color.Primary" Size="Size.Medium" Indeterminate="true" />
+<MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
+<MudProgressCircular Color="Color.Primary" Style="height:70px;width:70px;" Indeterminate="true" />
+<MudProgressLinear Color="Color.Error" Rounded="true" Size="Size.Small" Value="25" />
+<MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Value="50" Class="my-7" />
+<MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Large" Value="75" />
+    }
+
+
+
+<style>
+    .ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis
+    }
+</style>
+
+@code {
+    private bool cardioPr = false;
+    private bool bodyPr = false;
+    private bool PowerPr = false;
+
+    //  maybe i need to put state has changed 
+    // maybe toggle isnt best for this
+    // maybe a condition that if its toggled and other toggle is pressed it reset or something
+    private void CardioPrToggle()
+    {
+        cardioPr = !cardioPr;
+    }
+
+    private void BodyPrToggle()
+    {
+        bodyPr = !bodyPr; // Toggle the form visibility
+    }
+
+    private void PowerPrToggle()
+    {
+        PowerPr = !PowerPr; // Toggle the form visibility
+    }
+
+}
