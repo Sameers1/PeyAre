@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nUAyGDsuVg8=",
+  "dgSpecHash": "BZqBv3akbCE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj",
+  "projectFilePath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sameer\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.8\\microsoft.aspnetcore.authorization.8.0.8.nupkg.sha512",
     "C:\\Users\\Sameer\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.8\\microsoft.aspnetcore.components.8.0.8.nupkg.sha512",

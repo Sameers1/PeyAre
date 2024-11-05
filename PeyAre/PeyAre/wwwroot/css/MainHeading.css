@@ -1,0 +1,12 @@
+﻿body {
+    .stylish-heading
+
+{
+    color: #4CAF50; /* Custom green color */
+    font-weight: bold; /* Makes the heading bold */
+    font-family: 'Roboto', sans-serif; /* Modern font style */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    letter-spacing: 1px; /* Slight letter spacing */
+    text-transform: uppercase; /* Makes the text uppercase */
+}
+}

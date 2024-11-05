@@ -705,11 +705,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj",
+      "projectUniqueName": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
       "projectName": "PeyAre",
-      "projectPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj",
+      "projectPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
       "packagesPath": "C:\\Users\\Sameer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\obj\\",
+      "outputPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sameer\\AppData\\Roaming\\NuGet\\NuGet.Config",

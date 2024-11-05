@@ -7,7 +7,7 @@
 <MudLayout>
     <MudAppBar Elevation="1">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
+        <MudText Typo="Typo.h5" Class="ml-3 stylish-heading">PeyAre</MudText>
         <MudSpacer />
         <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle" />
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
@@ -20,6 +20,41 @@
     </MudMainContent>
 </MudLayout>
 
+<style>
+    .stylish-heading {
+        /* Gradient Text Effect */
+        background: linear-gradient(45deg, #2B6CB0, #805AD5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: 'Poppins', sans-serif; /* Stylish, modern font */
+        font-weight: 700; /* Bold for emphasis */
+        letter-spacing: 0.5px; /* Slight letter spacing */
+        /* Subtle Glow Effect */
+        text-shadow: 0px 4px 6px rgba(128, 90, 213, 0.3);
+        /* Underline Accent */
+        position: relative;
+        padding-bottom: 4px; /* Space for underline */
+    }
+
+        /* Custom Underline */
+        .stylish-heading::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background-color: #805AD5; /* Accent color that matches the gradient */
+            border-radius: 2px;
+        }
+
+        /* Hover Effect */
+        .stylish-heading:hover {
+            text-shadow: 0px 5px 8px rgba(43, 108, 176, 0.4); /* Enhanced shadow */
+            transform: scale(1.05); /* Slight scale-up for interaction */
+            transition: transform 0.2s ease, text-shadow 0.2s ease;
+        }
+</style>
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
@@ -37,11 +72,11 @@
         base.OnInitialized();
 
         _theme = new()
-        {
-            PaletteLight = _lightPalette,
-            PaletteDark = _darkPalette,
-            LayoutProperties = new LayoutProperties()
-        };
+            {
+                PaletteLight = _lightPalette,
+                PaletteDark = _darkPalette,
+                LayoutProperties = new LayoutProperties()
+            };
     }
 
 
@@ -56,53 +91,53 @@
     }
 
     private readonly PaletteLight _lightPalette = new()
-    {
-        Black = "#2a2a2a",              // Soft dark gray for primary text
-        AppbarText = "#4a4a4a",         // Dark gray for app bar text for good contrast
-        AppbarBackground = "rgba(255, 255, 255, 0.95)", // Light, semi-transparent background for the app bar
-        DrawerBackground = "#f9f9f9",    // Light gray background for the drawer
-        GrayLight = "#e0e0e0",          // Soft light gray for surfaces and borders
-        GrayLighter = "#f5f5f5",        // Very light gray for sections and cards
-        Primary = "#3E3E3E",            // Dark gray for primary buttons
-        Secondary = "#4CAF50",          // Vibrant green for secondary actions
-        Success = "#81C784",            // Soft green for success messages
-        Warning = "#D32F2F",            // Reddish color for warnings (dark red)
-        Error = "#F44336",              // Vivid red for error messages
-        TextPrimary = "#212121",        // Dark gray for main text to maintain readability
-        TextSecondary = "#757575",      // Medium gray for secondary text
-        Divider = "#BDBDBD",            // Light gray for dividers
-        OverlayLight = "rgba(255, 255, 255, 0.85)", // Soft white overlay for popups or modals
-        Info = "#2196F3",               // Bright blue for informational accents
-    };
+        {
+            Black = "#2a2a2a",              // Soft dark gray for primary text
+            AppbarText = "#4a4a4a",         // Dark gray for app bar text for good contrast
+            AppbarBackground = "rgba(255, 255, 255, 0.95)", // Light, semi-transparent background for the app bar
+            DrawerBackground = "#f9f9f9",    // Light gray background for the drawer
+            GrayLight = "#e0e0e0",          // Soft light gray for surfaces and borders
+            GrayLighter = "#f5f5f5",        // Very light gray for sections and cards
+            Primary = "#3E3E3E",            // Dark gray for primary buttons
+            Secondary = "#4CAF50",          // Vibrant green for secondary actions
+            Success = "#81C784",            // Soft green for success messages
+            Warning = "#D32F2F",            // Reddish color for warnings (dark red)
+            Error = "#F44336",              // Vivid red for error messages
+            TextPrimary = "#212121",        // Dark gray for main text to maintain readability
+            TextSecondary = "#757575",      // Medium gray for secondary text
+            Divider = "#BDBDBD",            // Light gray for dividers
+            OverlayLight = "rgba(255, 255, 255, 0.85)", // Soft white overlay for popups or modals
+            Info = "#2196F3",               // Bright blue for informational accents
+        };
 
     private readonly PaletteDark _darkPalette = new()
-    {
-        Primary = "#ff6b6b",         // Soft, vibrant coral red for primary elements
-        Surface = "#222222",         // Slightly lighter dark surface
-        Background = "#181818",      // Dark background for a rich contrast
-        BackgroundGray = "#202020",  // A softer dark gray background for balance
-        AppbarText = "#e0e0e0",      // Light gray for readability
-        AppbarBackground = "rgba(24,24,24,0.8)",  // Dark semi-transparent bar
-        DrawerBackground = "#181818", // Matches main background for a unified feel
-        ActionDefault = "#9e9e9e",    // Neutral gray for action icons
-        ActionDisabled = "#6666664d", // Slightly lighter gray for disabled icons
-        ActionDisabledBackground = "#4444444d", // Subtle dark background for disabled items
-        TextPrimary = "#ffffff",      // Clear white for main text
-        TextSecondary = "#b0b0b0",    // Light gray for secondary text
-        TextDisabled = "#ffffff33",   // Transparent white for disabled text
-        DrawerIcon = "#b0b0b0",       // Matches secondary text for drawer icons
-        DrawerText = "#b0b0b0",       // Consistent with secondary text for drawer text
-        GrayLight = "#2c2c2c",        // Softer gray for various UI elements
-        GrayLighter = "#333333",      // Light gray to differentiate sections
-        Info = "#4a90e2",             // Calming blue for informational accents
-        Success = "#34d399",          // Soft green for success messages
-        Warning = "#f6c453",          // Warm yellow for warnings
-        Error = "#f87171",            // Light red for errors
-        LinesDefault = "#404040",     // Darker line color for structure
-        TableLines = "#404040",       // Matches default line color for table borders
-        Divider = "#303030",          // Dark gray divider for subtle separation
-        OverlayLight = "#1e1e1e80",   // Soft overlay to maintain focus in dark mode
-    };
+        {
+            Primary = "#ff6b6b",         // Soft, vibrant coral red for primary elements
+            Surface = "#222222",         // Slightly lighter dark surface
+            Background = "#181818",      // Dark background for a rich contrast
+            BackgroundGray = "#202020",  // A softer dark gray background for balance
+            AppbarText = "#e0e0e0",      // Light gray for readability
+            AppbarBackground = "rgba(24,24,24,0.8)",  // Dark semi-transparent bar
+            DrawerBackground = "#181818", // Matches main background for a unified feel
+            ActionDefault = "#9e9e9e",    // Neutral gray for action icons
+            ActionDisabled = "#6666664d", // Slightly lighter gray for disabled icons
+            ActionDisabledBackground = "#4444444d", // Subtle dark background for disabled items
+            TextPrimary = "#ffffff",      // Clear white for main text
+            TextSecondary = "#b0b0b0",    // Light gray for secondary text
+            TextDisabled = "#ffffff33",   // Transparent white for disabled text
+            DrawerIcon = "#b0b0b0",       // Matches secondary text for drawer icons
+            DrawerText = "#b0b0b0",       // Consistent with secondary text for drawer text
+            GrayLight = "#2c2c2c",        // Softer gray for various UI elements
+            GrayLighter = "#333333",      // Light gray to differentiate sections
+            Info = "#4a90e2",             // Calming blue for informational accents
+            Success = "#34d399",          // Soft green for success messages
+            Warning = "#f6c453",          // Warm yellow for warnings
+            Error = "#f87171",            // Light red for errors
+            LinesDefault = "#404040",     // Darker line color for structure
+            TableLines = "#404040",       // Matches default line color for table borders
+            Divider = "#303030",          // Dark gray divider for subtle separation
+            OverlayLight = "#1e1e1e80",   // Soft overlay to maintain focus in dark mode
+        };
 
     public string DarkLightModeButtonIcon => _isDarkMode switch
     {

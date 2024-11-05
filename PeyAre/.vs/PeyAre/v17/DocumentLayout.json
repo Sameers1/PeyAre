@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\wwwroot\\css\\mainheading.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\wwwroot\\css\\mainheading.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\peyare.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\peyare.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 349,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainHeading.css",
+              "DocumentMoniker": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\css\\MainHeading.css",
+              "RelativeDocumentMoniker": "PeyAre\\wwwroot\\css\\MainHeading.css",
+              "ToolTip": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\css\\MainHeading.css",
+              "RelativeToolTip": "PeyAre\\wwwroot\\css\\MainHeading.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-05T06:55:14.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "PeyAre\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "PeyAre\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAACYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-05T06:52:30.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PeyAre",
+              "DocumentMoniker": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
+              "RelativeDocumentMoniker": "PeyAre\\PeyAre.csproj",
+              "ToolTip": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
+              "RelativeToolTip": "PeyAre\\PeyAre.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-05T06:35:52.042Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
