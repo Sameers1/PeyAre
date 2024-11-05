@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PeyAre")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7737bbe0c5ff41159276c0818eab865beea69e9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df5c12c4a3df1d7af6fc5ba03195ecae4e8684b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("PeyAre")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PeyAre")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
