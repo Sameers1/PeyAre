@@ -6,7 +6,7 @@
     <MudItem xs="12">
         <MudPaper Class="pa-4">
             <MudToggleGroup Class="mud-width-full" T="string" SelectedClass="black white-text">
-                <MudToggleItem Value="@("Basic Edition")">
+                <MudToggleItem Value="@("Basic Edition")" Class="hover-effect">
                     <div class="mud-width-full mud-height-full">
                         <div class="d-flex align-center justify-space-between flex-wrap">
                             <MudText Class="ellipsis">Lose Muscles</MudText>
@@ -15,7 +15,7 @@
                         <MudText Typo="Typo.subtitle2">DO YOU EVEN GO TO GYM?</MudText>
                     </div>
                 </MudToggleItem>
-                <MudToggleItem Value="@("Pro Edition")">
+                <MudToggleItem Value="@("Pro Edition")" Class="hover-effect">
                     <div class="mud-width-full mud-height-full">
                         <div class="d-flex align-center justify-space-between flex-wrap">
                             <MudText Class="ellipsis">Build Muscles</MudText>
@@ -24,7 +24,7 @@
                         <MudText Typo="Typo.subtitle2">I AM STRONG TRUST ME!!</MudText>
                     </div>
                 </MudToggleItem>
-                <MudToggleItem Value="@("Enterprise Edition")">
+                <MudToggleItem Value="@("Enterprise Edition")" Class="hover-effect">
                     <div class="mud-width-full mud-height-full">
                         <div class="d-flex align-center justify-space-between flex-wrap">
                             <MudText Class="ellipsis">Build Strength & Muscles</MudText>
@@ -34,12 +34,19 @@
                     </div>
                 </MudToggleItem>
             </MudToggleGroup>
-
-
         </MudPaper>
     </MudItem>
 </MudGrid>
 
+<style>
+    .hover-effect {
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+    }
+
+        .hover-effect:hover {
+            transform: scale(1.05); /* Scale the item by 5% */
+        }
+</style>
 
 @if (cardioPr)
 {

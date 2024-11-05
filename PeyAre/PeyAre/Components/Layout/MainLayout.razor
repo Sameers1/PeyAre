@@ -5,7 +5,7 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
-    <MudAppBar Elevation="1">
+    <MudAppBar Elevation="1" Class="custom-appbar">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5" Class="ml-3 stylish-heading">PeyAre</MudText>
         <MudSpacer />
@@ -19,41 +19,49 @@
         @Body
     </MudMainContent>
 </MudLayout>
-
 <style>
     .stylish-heading {
         /* Gradient Text Effect */
-        background: linear-gradient(45deg, #2B6CB0, #805AD5);
+        background: linear-gradient(45deg, #00C9FF, #92FE9D); /* Blue to teal gradient */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-family: 'Poppins', sans-serif; /* Stylish, modern font */
-        font-weight: 700; /* Bold for emphasis */
-        letter-spacing: 0.5px; /* Slight letter spacing */
-        /* Subtle Glow Effect */
-        text-shadow: 0px 4px 6px rgba(128, 90, 213, 0.3);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        /* Neon Glow Effect */
+        text-shadow: 0px 4px 6px rgba(0, 201, 255, 0.4), 0px 0px 15px rgba(0, 201, 255, 0.6);
         /* Underline Accent */
         position: relative;
-        padding-bottom: 4px; /* Space for underline */
+        padding-bottom: 0px;
     }
 
-        /* Custom Underline */
-        .stylish-heading::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 3px;
-            background-color: #805AD5; /* Accent color that matches the gradient */
-            border-radius: 2px;
-        }
 
         /* Hover Effect */
         .stylish-heading:hover {
-            text-shadow: 0px 5px 8px rgba(43, 108, 176, 0.4); /* Enhanced shadow */
-            transform: scale(1.05); /* Slight scale-up for interaction */
+            text-shadow: 0px 5px 8px rgba(0, 201, 255, 0.5), 0px 0px 20px rgba(146, 254, 157, 0.5); /* Brighter glow */
+            transform: scale(1.47); /* Slight scale-up for interaction */
             transition: transform 0.2s ease, text-shadow 0.2s ease;
         }
+</style>
+
+@* appbar *@
+<style>
+    .custom-appbar {
+        background: linear-gradient(90deg, #000000, #424242); /* Black to dark gray gradient */
+        color: #FFFFFF; /* White text for contrast */
+        border-bottom: 2px solid #616161; /* Dark gray border */
+    }
+
+    .stylish-heading {
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: #E0E0E0; /* Light gray for a soft contrast */
+        letter-spacing: 0.5px;
+    }
+
+    .icon-color {
+        color: #E0E0E0; /* Matching light gray for icons */
+    }
 </style>
 
 <div id="blazor-error-ui">
