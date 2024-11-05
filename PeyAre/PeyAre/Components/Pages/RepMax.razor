@@ -1,0 +1,79 @@
+﻿@page "/RepMax"
+
+<MudGrid>
+    <MudItem xs="12" sm="10" md="8" lg="6" class="mx-auto">
+        <MudCard Class="pa-4 shadow-lg elevation-2 card-transition" Style="background-color: #ffffff; border-radius: 2px;">
+            <MudCardContent>
+                <MudText Align="Align.Center" Typo="Typo.h3" Class="font-weight-bold mb-4 stylish-title" Style="color: #000000;">
+                    One Rep Max Calculator
+                </MudText>
+
+                <MudForm Spacing="3">
+                    <MudSelect @bind-Value="SelectedLift" Label="Select Lift" FullWidth="true" Style="background-color: #f5f5f5; color: #000000;">
+                        <MudSelectItem Value="@("Bench Press")">🏋️ Bench Press</MudSelectItem>
+                        <MudSelectItem Value="@("Squat")">🏋️‍♂️ Squat</MudSelectItem>
+                        <MudSelectItem Value="@("Deadlift")">🏋️ Deadlift</MudSelectItem>
+                        <MudSelectItem Value="@("Overhead Press")">🏋️‍♀️ Overhead Press</MudSelectItem>
+                    </MudSelect>
+
+                    <MudTextField T="int" Label="Lift (kg)" FullWidth="true" @bind-Value="lift" Style="background-color: #f5f5f5; color: #000000;" />
+
+                    <MudNumericField T="int" Label="Reps" FullWidth="true" @bind-Value="reps" Style="background-color: #f5f5f5; color: #000000;" />
+
+                    <MudButton Color="Color.Primary" @onclick="CalculateOneRep" Variant="Variant.Filled" Class="mt-3 button-hover" FullWidth="true">
+                        Calculate
+                    </MudButton>
+
+                    @if (FormatedValue != null)
+                    {
+                        <MudText T="int" Align="Align.Center" Typo="Typo.h6" Class="mt-3" Style="color: #333333; animation: fadeIn 0.5s;">
+                            Your One Rep Max for @SelectedLift is: <strong>@FormatedValue</strong> kg
+                        </MudText>
+                    }
+                </MudForm>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+<style>
+    .stylish-title {
+        font-family: 'Arial', sans-serif; /* Professional font */
+        font-weight: bold;
+    }
+
+    .card-transition {
+        transition: transform 0.2s; /* Smooth scaling effect */
+    }
+
+        
+
+    .button-hover {
+        background-color: #000000;
+        color: #ffffff;
+        transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background and scale */
+    }
+        
+        .button-hover:hover {
+            background-color: #444444; /* Change to a lighter shade on hover */
+            transform: scale(1.02); /* Slightly enlarge the button on hover */
+        }
+</style>
+
+
+
+@code {
+    public int lift { get; set; }
+    public int reps { get; set; }
+    public double calculate1rm { get; set; }
+    public string FormatedValue { get; set; }
+
+    private string SelectedLift { get; set; } = "Bench Press";
+
+    private void CalculateOneRep()
+    {
+        calculate1rm = lift* (1 + (0.0333 * reps));
+        FormatedValue = calculate1rm.ToString("F1");
+    }
+
+}

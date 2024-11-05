@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj": {}
+    "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj": {
+    "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj",
+        "projectUniqueName": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
         "projectName": "PeyAre",
-        "projectPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre.csproj",
+        "projectPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\PeyAre.csproj",
         "packagesPath": "C:\\Users\\Sameer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\obj\\",
+        "outputPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sameer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,16 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "MudBlazor": {
               "target": "Package",
               "version": "[7.*, )"

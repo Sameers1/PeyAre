@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "U3y1TEVZpTzu6sRPn04cbUiABhudRsqrf+lWgius4kw=",
+  "Hash": "u1aBr0zIpoCCyAYN4e3XIFvqeXB5ybnb6Cw60mS0vJM=",
   "Source": "PeyAre",
   "BasePath": "_content/PeyAre",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "PeyAre\\wwwroot",
       "Source": "PeyAre",
-      "ContentRoot": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\",
       "BasePath": "_content/PeyAre",
       "Pattern": "**"
     }
@@ -55,10 +55,29 @@
       "OriginalItemSpec": "C:\\Users\\Sameer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\css\\MainHeading.css",
       "SourceId": "PeyAre",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\",
+      "BasePath": "_content/PeyAre",
+      "RelativePath": "css/MainHeading.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MainHeading.css"
+    },
+    {
+      "Identity": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\favicon.ico",
+      "SourceId": "PeyAre",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\",
       "BasePath": "_content/PeyAre",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

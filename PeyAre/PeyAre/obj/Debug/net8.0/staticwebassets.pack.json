@@ -1,7 +1,11 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\css\\MainHeading.css",
+      "PackagePath": "staticwebassets\\css\\MainHeading.css"
+    },
+    {
+      "Id": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
