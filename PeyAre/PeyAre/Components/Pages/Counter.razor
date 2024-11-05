@@ -1,18 +1,53 @@
 ﻿@page "/counter"
 
-<PageTitle>Counter</PageTitle>
+@using MudBlazor
 
-<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Class="pa-4">
+            <MudToggleGroup  Class="mud-width-full" T="string" SelectedClass="black white-text">
+                <MudToggleItem Value="@("Basic Edition")">
+                    <div class="mud-width-full mud-height-full">
+                        <div class="d-flex align-center justify-space-between flex-wrap">
+                            <MudText Class="ellipsis">Lose Muscles</MudText>
+                            <MudChip Color="@(context ? Color.Success : Color.Primary)" Icon="@(context ? Icons.Material.Filled.Check : "")">Cardio</MudChip>
+                        </div>
+                        <MudText Typo="Typo.subtitle2">DO YOU EVEN GO TO GYM?</MudText>
+                    </div>
+                </MudToggleItem>
+                <MudToggleItem Value="@("Pro Edition")">
+                    <div class="mud-width-full mud-height-full">
+                        <div class="d-flex align-center justify-space-between flex-wrap">
+                            <MudText Class="ellipsis">Build Muscles</MudText>
+                            <MudChip Color="@(context ? Color.Success : Color.Primary)" Icon="@(context ? Icons.Material.Filled.Check : "")">BodyBuilding</MudChip>
+                        </div>
+                        <MudText Typo="Typo.subtitle2">I AM STRONG TRUST ME!!</MudText>
+                    </div>
+                </MudToggleItem>
+                <MudToggleItem Value="@("Enterprise Edition")">
+                    <div class="mud-width-full mud-height-full">
+                        <div class="d-flex align-center justify-space-between flex-wrap">
+                            <MudText Class="ellipsis">Build Strength & Muscles</MudText>
+                            <MudChip Color="@(context ? Color.Success : Color.Primary)" Icon="@(context ? Icons.Material.Filled.Check : "")">Power lifting</MudChip>
+                        </div>
+                        <MudText Typo="Typo.subtitle2">I LIFT</MudText>
+                    </div>
+                </MudToggleItem>
+            </MudToggleGroup>
 
-<MudText Typo="Typo.body1" Class="mb-4">Current count: @currentCount</MudText>
+         
+        </MudPaper>
+    </MudItem>
+</MudGrid>
 
-<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+<style>
+    .ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis
+    }
+</style>
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
+   
 }
