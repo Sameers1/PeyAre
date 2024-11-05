@@ -178,17 +178,23 @@ else if (PowerPr)
     // maybe a condition that if its toggled and other toggle is pressed it reset or something
     private void CardioPrToggle()
     {
-        cardioPr = !cardioPr;
+        cardioPr = true;   // Set cardioPr to true
+        bodyPr = false;    // Set bodyPr to false
+        PowerPr = false;   // Set PowerPr to false
     }
 
     private void BodyPrToggle()
     {
-        bodyPr = !bodyPr; // Toggle the form visibility
+        bodyPr = true;     // Set bodyPr to true
+        cardioPr = false;  // Set cardioPr to false
+        PowerPr = false;   // Set PowerPr to false
     }
 
     private void PowerPrToggle()
     {
-        PowerPr = !PowerPr; // Toggle the form visibility
+        PowerPr = true;    // Set PowerPr to true
+        cardioPr = false;  // Set cardioPr to false
+        bodyPr = false;    // Set bodyPr to false
     }
 
 }

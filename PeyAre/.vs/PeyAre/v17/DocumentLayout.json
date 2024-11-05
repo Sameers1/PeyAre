@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\pages\\repmax.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\pages\\repmax.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\pages\\repmax.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\pages\\repmax.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|solutionrelative:peyare\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{78BF46F5-B470-4A71-B914-888DF0D20B42}|PeyAre\\PeyAre.csproj|c:\\users\\sameer\\source\\repos\\peyare\\peyare\\peyare\\wwwroot\\css\\mainheading.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 349,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,13 +50,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "RepMax.razor",
               "DocumentMoniker": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Pages\\RepMax.razor",
               "RelativeDocumentMoniker": "PeyAre\\Components\\Pages\\RepMax.razor",
-              "ToolTip": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Pages\\RepMax.razor*",
-              "RelativeToolTip": "PeyAre\\Components\\Pages\\RepMax.razor*",
-              "ViewState": "AgIAABkAAAAAAAAAAAAiwCkAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Pages\\RepMax.razor",
+              "RelativeToolTip": "PeyAre\\Components\\Pages\\RepMax.razor",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-05T16:07:30.467Z",
               "EditorCaption": ""
@@ -76,13 +76,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Dashboard.razor",
               "DocumentMoniker": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Pages\\Dashboard.razor",
               "RelativeDocumentMoniker": "PeyAre\\Components\\Pages\\Dashboard.razor",
               "ToolTip": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Pages\\Dashboard.razor",
               "RelativeToolTip": "PeyAre\\Components\\Pages\\Dashboard.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAQwJIAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-05T07:23:29.863Z",
               "EditorCaption": ""
@@ -101,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "PeyAre\\Components\\Layout\\MainLayout.razor",
