@@ -1,0 +1,52 @@
+﻿@page "/RepMax"
+
+<MudGrid>
+    <MudItem xs="12" sm="10" md="8" lg="6" class="mx-auto">
+        <!-- Centering the card -->
+        <MudCard Class="pa-4 shadow-lg">
+            <!-- Added padding and shadow -->
+            <MudCardContent>
+                <MudText Align="Align.Center" Typo="Typo.h4" Class="font-weight-bold mb-4 stylish-title">One Rep Max Calculator</MudText>
+                <MudForm Spacing="3">
+                    <!-- Increased spacing -->
+                    <MudSelect @bind-Value="SelectedLift" Label="Select Lift" FullWidth="true">
+                        <MudSelectItem Value="@("Bench Press")">Bench Press</MudSelectItem>
+                        <MudSelectItem Value="@("Squat")">Squat</MudSelectItem>
+                        <MudSelectItem Value="@("Deadlift")">Deadlift</MudSelectItem>
+                        <MudSelectItem Value="@("Overhead Press")">Overhead Press</MudSelectItem>
+                    </MudSelect>
+                    <MudTextField T="int" Label="Lift" FullWidth="true" @bind-Value="lift" />
+                    <MudNumericField T="int" Label="Number" FullWidth="true" @bind-Value="reps"/>
+                    <MudButton Color="Color.Primary" @onclick="CalculateOneRep"  Variant="Variant.Filled" Class="mt-3" FullWidth="true">
+                        Calculate
+                    </MudButton>
+                    
+                    @if (calculate1rm != null)
+                    {
+                        <MudText T="int"  Align="Align.Center" Typo="Typo.h6" Class="mt-3">
+                            Your One Rep Max for @SelectedLift is: <strong>@FormatedValue</strong> kg
+                        </MudText>
+                    }
+                </MudForm>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+
+
+@code {
+    public int lift { get; set; }
+    public int reps { get; set; }
+    public double calculate1rm { get; set; }
+    public string FormatedValue { get; set; }
+
+    private string SelectedLift { get; set; } = "Bench Press";
+
+    private void CalculateOneRep()
+    {
+        calculate1rm = lift* (1 + (0.0333 * reps));
+        FormatedValue = calculate1rm.ToString("F0");
+    }
+
+}
