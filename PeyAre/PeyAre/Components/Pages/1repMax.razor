@@ -1,0 +1,170 @@
+﻿@page "/1repMax"
+@using PeyAre.Data
+@using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext _context
+
+
+<div style="display: flex; justify-content: center; align-items: center; height: 43vh; padding: 20px;">
+    <!-- Calculate and Save Card -->
+    <MudCard Class="mud-elevation-4" Style="background-color:#F5F5F5; padding:20px; border-radius: 10px; width: 700px;">
+        <MudCardContent>
+            <!-- Lift Name Selection -->
+            <MudSelect T="string" @bind-Value="repMax.LiftName" Label="Select Lift"
+                       Style="background-color:#E8E8E8; color:#333333; margin-bottom: 10px;">
+                <MudSelectItem T="string" Value="@("Bench Press")">Bench Press</MudSelectItem>
+                <MudSelectItem T="string" Value="@("Squats")">Squat</MudSelectItem>
+                <MudSelectItem T="string" Value="@("Deadlift")">Deadlift</MudSelectItem>
+                <MudSelectItem T="string" Value="@("Leg Press")">Leg Press</MudSelectItem>
+            </MudSelect>
+
+            <!-- Weight Lifted -->
+            <MudTextField @bind-Value="repMax.WeightLifted" Label="Weight Lifted (kg)" Type="number"
+                          Style="background-color:#E8E8E8; color:#333333; margin-bottom: 10px; width: 100%;" />
+
+            <!-- Reps Performed -->
+            <MudTextField @bind-Value="repMax.Reps" Label="Reps Performed" Type="number"
+                          Style="background-color:#E8E8E8; color:#333333; margin-bottom: 10px; width: 100%;" />
+
+            <!-- Calculated 1RM (display only) -->
+            <MudTextField Label="Calculated 1RM" Value="@calculated1RM" Disabled="true"
+                          Style="background-color:#D0D0D0; color:#666666; margin-bottom: 10px; width: 100%;" />
+
+            <!-- Save Button -->
+            <MudButton OnClick="CalculateAndSave" Color="Color.Default" Variant="Variant.Filled"
+                       Style="background-color:#000000; color:#FFFFFF; width: 100%; margin-bottom: 10px;
+                              padding: 10px; font-size: 14px; transition: all 0.3s ease-in-out; border: none; box-shadow: 0 0 5px #000000;"
+                       Class="glow-button">
+                Calculate and Save
+            </MudButton>
+
+            <!-- Status message -->
+            <MudText Typo="Typo.body2" Style="color:#6D6D6D;">
+                @statusMessage
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+</div>
+
+<!-- Old Paint Card - Positioned Below Calculate Card -->
+<MudCard Class="mud-elevation-4" Style="background-color:#F5F5F5; padding:20px; border-radius: 10px; width: 100%; box-shadow: 0px 4px 8px rgba(0,0,0,0.1);">
+    <MudCardContent>
+        <MudText Typo="Typo.h5" Style="font-weight: 600; color:#333333; margin-bottom: 20px;">RepMax History</MudText>
+
+        <!-- MudDataGrid to display RepMax records -->
+        <MudDataGrid Items="@repMaxes" Filterable="false" SortMode="SortMode.None" Groupable="false" Hover="true" Style="border-radius: 10px; overflow: hidden;" Class="custom-hover custom-striped">
+            <Columns>
+                <PropertyColumn Property="x => x.LiftName" Title="Lift Name" />
+                <PropertyColumn Property="x => x.WeightLifted" Title="Weight Lifted (kg)" />
+                <PropertyColumn Property="x => x.Reps" Title="Reps Performed" />
+                <PropertyColumn Property="x => x.OneRepMax" Title="1RM (kg)"  />
+
+                <!-- Actions column -->
+                <TemplateColumn Title="Actions">
+                    <CellTemplate>
+                        <MudStack Row>
+                            <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Error" OnClick="@(() => DeleteRepMax(context.Item))"
+                                       Style="background-color:#E57373; color:#FFFFFF; font-weight: 500; padding: 6px 12px; border-radius: 5px;">
+                                Delete
+                            </MudButton>
+                        </MudStack>
+                    </CellTemplate>
+                </TemplateColumn>
+            </Columns>
+        </MudDataGrid>
+    </MudCardContent>
+</MudCard>
+
+
+
+<style>
+        .glow-button {
+            transition: all 0.3s ease-in-out;
+        }
+
+            .glow-button:hover {
+                box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.7); /* Glowing effect */
+                transform: scale(1.05); /* Slightly increase size */
+            }
+    </style>
+
+<style>
+    /* Simple striped rows */
+    .custom-grid .mud-table-row:nth-child(even) {
+        background-color: #f9f9f9; /* Light gray for even rows */
+    }
+
+    .custom-grid .mud-table-row:nth-child(odd) {
+        background-color: #ffffff; /* White for odd rows */
+    }
+
+    /* Apply subtle hover effect with darkening background */
+    .custom-grid .mud-table-row:hover {
+        background-color: #e0e0e0; /* Light gray on hover */
+        transition: background-color 0.2s ease; /* Smooth transition */
+    }
+
+    /* Action button */
+    .mud-button {
+        padding: 6px 12px;
+        border-radius: 5px;
+        transition: background-color 0.2s ease;
+    }
+
+        .mud-button:hover {
+            background-color: #d32f2f; /* Darker red on hover */
+        }
+</style>
+
+@code {
+    private RepMax repMax = new RepMax();
+    private decimal calculated1RM;
+    private string statusMessage;
+    private List<RepMax> repMaxes;
+
+   
+
+    // Method to handle deleting a RepMax entry
+    private async Task DeleteRepMax(RepMax repMax)
+    {
+        Console.WriteLine($"Deleting: {repMax.LiftName}");
+        _context.RepMaxes.Remove(repMax);
+        await _context.SaveChangesAsync();
+        repMaxes.Remove(repMax);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+    // Load data from the database
+        repMaxes = await _context.RepMaxes.ToListAsync();
+
+    }
+
+    // Handle calculation and saving directly in the component
+    private async Task CalculateAndSave()
+    {
+        if (!string.IsNullOrEmpty(repMax.LiftName) && repMax.WeightLifted > 0 && repMax.Reps > 0)
+        {
+            // Calculate the 1RM using the Epley formula
+            calculated1RM = repMax.WeightLifted * (1 + (repMax.Reps / 30.0m));
+            repMax.OneRepMax = calculated1RM;
+            repMax.Date = DateTime.UtcNow;
+
+            // Save the result in the database directly
+            _context.RepMaxes.Add(repMax);
+            await _context.SaveChangesAsync();
+
+            statusMessage = "1RM saved successfully!";
+            repMax = new RepMax(); // Reset the form after saving
+
+            StateHasChanged();
+        }
+        else
+        {
+            statusMessage = "Please fill in all fields with valid values.";
+        }
+    }
+
+
+   
+
+}

@@ -29,6 +29,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/1repMax.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1wxcmVwTWF4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -39,6 +47,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/RepMax1.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZXBNYXgxLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Routes.razor]
