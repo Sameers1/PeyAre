@@ -1,5 +1,5 @@
-﻿@page "/RepMax"
-
+﻿@* @page "/RepMax"
+@inject ApplicationDbContext _context
 <MudGrid>
     <MudItem xs="12" sm="10" md="8" lg="6" class="mx-auto">
         <MudCard Class="pa-4 shadow-lg elevation-2 card-transition" Style="background-color: #ffffff; border-radius: 2px;">
@@ -76,4 +76,6 @@
         FormatedValue = calculate1rm.ToString("F1");
     }
 
-}
+
+
+} *@

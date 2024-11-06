@@ -1,0 +1,36 @@
+﻿@page "/log-exercise"
+@using PeyAre.Data
+@using PeyAre.Models
+
+@inject ApplicationDbContext dbContext
+@using Microsoft.EntityFrameworkCore
+
+
+<h3>Log Gym Exercise</h3>
+
+<EditForm Model="@_exerciseLog" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudTextField @bind-Value="_exerciseLog.ExerciseName" Label="Exercise Name" Required="true" />
+    <MudTextField @bind-Value="_exerciseLog.Sets" Label="Sets" Required="true" Type="number" />
+    <MudTextField @bind-Value="_exerciseLog.Reps" Label="Reps" Required="true" Type="number" />
+    <MudTextField @bind-Value="_exerciseLog.Weight" Label="Weight" Required="true" Type="number" />
+    <MudDatePicker @bind-Value="_exerciseLog.Date" Label="Date" Required="true" />
+    <MudTextField @bind-Value="_exerciseLog.Notes" Label="Notes" />
+
+    <MudButton Type="Submit" Color="Color.Primary">Save Exercise</MudButton>
+</EditForm>
+
+@code {
+    private readonly GymExerciseLogModel _exerciseLog = new GymExerciseLogModel();
+
+    private async Task HandleValidSubmit()
+    {
+        // Add the exercise log to the database
+        dbContext.GymExerciseLogs.Add(_exerciseLog);
+        await dbContext.SaveChangesAsync();
+
+        // Optionally, clear the form or show a success message
+    }
+}
