@@ -45,16 +45,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/GymExerciseLogger.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHeW1FeGVyY2lzZUxvZ2dlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/RepMax1.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZXBNYXgxLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/Statistics.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdGF0aXN0aWNzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Pages/Szzzzzzzzz.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTenp6enp6enp6LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sameer/source/repos/PeyAre/PeyAre/PeyAre/Components/Routes.razor]
