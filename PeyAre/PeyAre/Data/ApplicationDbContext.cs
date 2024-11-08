@@ -11,5 +11,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<GymExerciseLogModel> GymExerciseLogs { get; set; }
 
     public DbSet<RepMax> RepMaxes { get; set; }
+    public DbSet<ApiData> ApiDatas { get; set; }
+
 
 }

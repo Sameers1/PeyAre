@@ -1,0 +1,58 @@
+﻿@page "/agecalculator"
+@using PeyAre.Models
+@inject HttpClient Http
+@inject ApplicationDbContext DbContext
+
+<h3>Age Calculator</h3>
+
+<input @bind="userName" placeholder="Enter your name" />
+<button @onclick="GetAge">Get Age</button>
+
+@if (age != null)
+{
+    <p>The estimated age of @userName is @age years old.</p>
+    <button @onclick="SaveAgeLog">Save to Database</button>
+}
+
+@code {
+    private string userName;
+    private int? age;
+
+    private async Task GetAge()
+    {
+        if (string.IsNullOrEmpty(userName)) return;
+
+        try
+        {
+            var response = await Http.GetFromJsonAsync<ApiResponse>($"https://api.agify.io?name={userName}");
+            age = response?.Age;
+        }
+        catch (Exception ex)
+        {
+    // Handle any errors (e.g., network issues)
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+
+    private async Task SaveAgeLog()
+    {
+        if (age != null && !string.IsNullOrEmpty(userName))
+        {
+            var userAgeLog = new ApiData
+            {
+                Name = userName,
+                Age = (int)age,
+               
+            };
+
+            DbContext.ApiDatas.Add(userAgeLog);
+            await DbContext.SaveChangesAsync();
+        }
+    }
+
+    public class ApiResponse
+    {
+        public int Age { get; set; }
+    }
+    
+}
