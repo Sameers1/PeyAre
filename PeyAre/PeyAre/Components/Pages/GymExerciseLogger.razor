@@ -6,36 +6,46 @@
 
 
 
-<div style="display: flex; justify-content: center; align-items: center; height: 80vh; padding: 20px;">
+<div class="exercise-log-container">
     <!-- Exercise Logging Card -->
-    <MudCard Class="mud-elevation-4" Style="background-color:#F5F5F5; padding:20px; border-radius: 10px; width: 700px;">
+    <MudCard Class="mud-elevation-4 custom-card">
         <MudCardContent>
-            <MudText Typo="Typo.h5" Style="text-align:center; margin-bottom: 20px;">Log Your Exercise</MudText>
+            <MudText Typo="Typo.h5" Class="center-text">Log Your Exercise</MudText>
 
             <!-- Exercise Name -->
-            <MudTextField @bind-Value="exerciseLog.ExerciseName" Label="Exercise Name" Style="margin-bottom: 10px; width: 100%;" />
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.ExerciseName" Label="Exercise Name" FullWidth Margin="Margin.Normal" />
+                </MudItem>
 
-            <!-- Sets -->
-            <MudTextField @bind-Value="exerciseLog.Sets" Label="Sets" Type="number" Style="margin-bottom: 10px; width: 100%;" />
+                <!-- Sets -->
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.Sets" Label="Sets" Type="number" FullWidth Margin="Margin.Normal" />
+                </MudItem>
 
-            <!-- Reps -->
-            <MudTextField @bind-Value="exerciseLog.Reps" Label="Reps" Type="number" Style="margin-bottom: 10px; width: 100%;" />
+                <!-- Reps -->
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.Reps" Label="Reps" Type="number" FullWidth Margin="Margin.Normal" />
+                </MudItem>
 
-            <!-- Weight -->
-            <MudTextField @bind-Value="exerciseLog.Weight" Label="Weight Lifted (kg)" Type="number" Style="margin-bottom: 10px; width: 100%;" />
+                <!-- Weight -->
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.Weight" Label="Weight Lifted (kg)" Type="number" FullWidth Margin="Margin.Normal" />
+                </MudItem>
 
-            <!-- Notes -->
-            <MudTextField @bind-Value="exerciseLog.Notes" Label="Notes" Style="margin-bottom: 10px; width: 100%;" />
+                <!-- Notes -->
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="exerciseLog.Notes" Label="Notes" FullWidth Margin="Margin.Normal" />
+                </MudItem>
+            </MudGrid>
 
             <!-- Save Button -->
-            <MudButton OnClick="SaveExerciseLog" Color="Color.Primary" Variant="Variant.Filled" Style="width: 100%; margin-top: 20px;">
+            <MudButton OnClick="SaveExerciseLog" Color="Color.Primary" Variant="Variant.Filled" FullWidth Class="submit-button">
                 Save Exercise Log
             </MudButton>
 
             <!-- Status Message -->
-            <MudText Typo="Typo.body2" Style="color:#6D6D6D;">
-                @statusMessage
-            </MudText>
+            <MudText Typo="Typo.body2" Class="status-message">@statusMessage</MudText>
         </MudCardContent>
     </MudCard>
 </div>
@@ -43,7 +53,13 @@
 @code {
     private GymExerciseLogModel exerciseLog = new GymExerciseLogModel();
     private string statusMessage = string.Empty;
+    private List<GymExerciseLogModel> GymExerciseLogModels;
 
+
+    protected override async Task OnInitializedAsync()
+    {
+        GymExerciseLogModels = await _context.GymExerciseLogs.ToListAsync();
+    }
     // Method to handle saving the exercise log
     private async Task SaveExerciseLog()
     {
