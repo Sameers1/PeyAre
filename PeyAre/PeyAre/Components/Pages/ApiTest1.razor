@@ -5,11 +5,12 @@
 @inject HttpClient Http
 @inject ApplicationDbContext DbContext
 @inject ISnackbar Snackbar
+@inject IDialogService DialogService
 
 <MudCard Style="padding: 2rem; max-width: 600px; margin: auto; background-color: #1c1c1c;">
     <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">Age Calculator</MudText>
 
-    <MudTextField @bind-Value="userName" Label="Enter your name" Variant="Variant.Filled" 
+    <MudTextField @bind-Value="userName" Label="Enter your name" Variant="Variant.Filled"
                   FullWidth="true" Style="color: #FFFFFF; background-color: #2a2a2a;" />
 
     <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%; margin-top: 1rem;" @onclick="GetAge">
@@ -89,7 +90,6 @@
         }
     }
 
-
     private async Task SaveAgeLog()
     {
         if (age != null && !string.IsNullOrEmpty(userName))
@@ -102,10 +102,10 @@
             statusMessage = "Data has been saved!";
 
             apiData = new ApiData();  // Reset form
-            Snackbar.Add("Data has been saved!", Severity.Normal, options => 
+            Snackbar.Add("Data has been saved!", Severity.Normal, options =>
             {
-                options.IconColor = Color.Error;    
-                options.ActionColor = Color.Error;// This will set the background color to red
+                options.IconColor = Color.Error;
+                options.ActionColor = Color.Error; // This will set the background color to red
             });
             // Reload saved data to update the list
             await LoadSavedData();
@@ -121,20 +121,22 @@
             await DbContext.SaveChangesAsync();
             statusMessage = "Data has been deleted!";
 
-    // Optionally show a Snackbar notification
-            Snackbar.Add("Data has been deleted!", Severity.Normal, options => 
+            // Optionally show a Snackbar notification
+            Snackbar.Add("Data has been deleted!", Severity.Normal, options =>
             {
                 options.IconColor = Color.Error; // Red color for delete action
             });
 
-    // Reload saved data to update the list
+            // Reload saved data to update the list
             await LoadSavedData();
         }
     }
-
 
     private async Task LoadSavedData()
     {
         savedAgeData = await DbContext.ApiDatas.ToListAsync();
     }
+
+   
+
 }
