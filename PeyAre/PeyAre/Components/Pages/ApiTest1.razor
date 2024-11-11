@@ -1,24 +1,71 @@
 ﻿@page "/agecalculator"
 @using PeyAre.Models
 @using PeyAre.Data
+@using Microsoft.EntityFrameworkCore
 @inject HttpClient Http
 @inject ApplicationDbContext DbContext
 
-<h3>Age Calculator</h3>
+<MudCard Style="padding: 2rem; max-width: 400px; margin: auto; background-color: #1c1c1c;">
+    <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">Age Calculator</MudText>
 
-<input @bind="userName" placeholder="Enter your name" />
-<button @onclick="GetAge">Get Age</button>
+    <MudTextField @bind-Value="userName" Label="Enter your name" Variant="Variant.Filled" 
+                  FullWidth="true" Style="color: #FFFFFF; background-color: #2a2a2a;" />
 
-@if (age != null)
-{
-    <p>The estimated age of @userName is @age years old.</p>
-    <button @onclick="SaveAgeLog">Save to Database</button>
-}
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%; margin-top: 1rem;" @onclick="GetAge">
+        Get Age
+    </MudButton>
+
+    @if (age != null)
+    {
+        <MudText Typo="Typo.body1" Style="color: #D3D3D3; margin-top: 1rem;">
+            The estimated age of @userName is @age years old.
+        </MudText>
+
+        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Style="width: 100%; margin-top: 1rem;" @onclick="SaveAgeLog">
+            Save to Database
+        </MudButton>
+
+        <MudText Typo="Typo.body2" Style="color: #6D6D6D; margin-top: 0.5rem;">
+            @statusMessage
+        </MudText>
+    }
+
+    <MudDivider Style="margin-top: 2rem;" />
+
+    <MudText Typo="Typo.h6" Style="color: #FFFFFF; margin-top: 1rem;">Saved Data</MudText>
+
+    <MudList T="ApiData">
+        @if (savedAgeData != null && savedAgeData.Any())
+        {
+            @foreach (var data in savedAgeData.OrderByDescending(d => d.Id))
+            {
+                <MudListItem>
+                    <MudText Style="color: #D3D3D3;">Name: @data.Name, Age: @data.Age, t: @t</MudText>
+                </MudListItem>
+            }
+        }
+        else
+        {
+            <MudListItem>
+                <MudText Style="color: #D3D3D3;">No saved data available.</MudText>
+            </MudListItem>
+        }
+    </MudList>
+
+</MudCard>
 
 @code {
     private ApiData apiData = new ApiData();
     private string userName;
     private int? age;
+    private string statusMessage;
+    private List<ApiData> savedAgeData = new List<ApiData>();
+    private string t = "Additional Info";  // Example string value
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSavedData();
+    }
 
     private async Task GetAge()
     {
@@ -26,12 +73,11 @@
 
         try
         {
-            var response = await Http.GetFromJsonAsync<ApiResponse>($"https://api.agify.io?name={userName}");
+            var response = await Http.GetFromJsonAsync<ApiData>($"https://api.agify.io?name={userName}");
             age = response?.Age;
         }
         catch (Exception ex)
         {
-    // Handle any errors (e.g., network issues)
             Console.WriteLine($"Error: {ex.Message}");
         }
     }
@@ -45,12 +91,16 @@
 
             DbContext.ApiDatas.Add(apiData);
             await DbContext.SaveChangesAsync();
+            statusMessage = "Data has been saved!";
+            apiData = new ApiData();  // Reset form
+
+            // Reload saved data to update the list
+            await LoadSavedData();
         }
     }
 
-    public class ApiResponse
+    private async Task LoadSavedData()
     {
-        public int Age { get; set; }
+        savedAgeData = await DbContext.ApiDatas.ToListAsync();
     }
-    
 }
