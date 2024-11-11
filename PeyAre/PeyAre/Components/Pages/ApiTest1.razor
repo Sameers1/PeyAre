@@ -4,8 +4,9 @@
 @using Microsoft.EntityFrameworkCore
 @inject HttpClient Http
 @inject ApplicationDbContext DbContext
+@inject ISnackbar Snackbar
 
-<MudCard Style="padding: 2rem; max-width: 400px; margin: auto; background-color: #1c1c1c;">
+<MudCard Style="padding: 2rem; max-width: 600px; margin: auto; background-color: #1c1c1c;">
     <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">Age Calculator</MudText>
 
     <MudTextField @bind-Value="userName" Label="Enter your name" Variant="Variant.Filled" 
@@ -40,7 +41,12 @@
             @foreach (var data in savedAgeData.OrderByDescending(d => d.Id))
             {
                 <MudListItem>
-                    <MudText Style="color: #D3D3D3;">Name: @data.Name, Age: @data.Age, t: @t</MudText>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <MudText Style="color: #D3D3D3;">Name: @data.Name, Age: @data.Age, t: @t</MudText>
+                        <MudButton Variant="Variant.Text" Color="Color.Error" @onclick="() => DeleteData(data.Id)">
+                            Delete
+                        </MudButton>
+                    </div>
                 </MudListItem>
             }
         }
@@ -62,6 +68,7 @@
     private List<ApiData> savedAgeData = new List<ApiData>();
     private string t = "Additional Info";  // Example string value
 
+
     protected override async Task OnInitializedAsync()
     {
         await LoadSavedData();
@@ -82,6 +89,7 @@
         }
     }
 
+
     private async Task SaveAgeLog()
     {
         if (age != null && !string.IsNullOrEmpty(userName))
@@ -92,12 +100,38 @@
             DbContext.ApiDatas.Add(apiData);
             await DbContext.SaveChangesAsync();
             statusMessage = "Data has been saved!";
-            apiData = new ApiData();  // Reset form
 
+            apiData = new ApiData();  // Reset form
+            Snackbar.Add("Data has been saved!", Severity.Normal, options => 
+            {
+                options.IconColor = Color.Error;    
+                options.ActionColor = Color.Error;// This will set the background color to red
+            });
             // Reload saved data to update the list
             await LoadSavedData();
         }
     }
+
+    private async Task DeleteData(int id)
+    {
+        var dataToDelete = savedAgeData.FirstOrDefault(d => d.Id == id);
+        if (dataToDelete != null)
+        {
+            DbContext.ApiDatas.Remove(dataToDelete);
+            await DbContext.SaveChangesAsync();
+            statusMessage = "Data has been deleted!";
+
+    // Optionally show a Snackbar notification
+            Snackbar.Add("Data has been deleted!", Severity.Normal, options => 
+            {
+                options.IconColor = Color.Error; // Red color for delete action
+            });
+
+    // Reload saved data to update the list
+            await LoadSavedData();
+        }
+    }
+
 
     private async Task LoadSavedData()
     {
