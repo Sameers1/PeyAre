@@ -1,5 +1,6 @@
 ﻿@page "/agecalculator"
 @using PeyAre.Models
+@using PeyAre.Data
 @inject HttpClient Http
 @inject ApplicationDbContext DbContext
 
@@ -15,6 +16,7 @@
 }
 
 @code {
+    private ApiData apiData = new ApiData();
     private string userName;
     private int? age;
 
@@ -38,14 +40,10 @@
     {
         if (age != null && !string.IsNullOrEmpty(userName))
         {
-            var userAgeLog = new ApiData
-            {
-                Name = userName,
-                Age = (int)age,
-               
-            };
+            apiData.Age = (int)age;
+            apiData.Name = userName;
 
-            DbContext.ApiDatas.Add(userAgeLog);
+            DbContext.ApiDatas.Add(apiData);
             await DbContext.SaveChangesAsync();
         }
     }
