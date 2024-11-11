@@ -396,3 +396,13 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/PeyAre/PeyAre/obj/Debug/net8.0/ref/PeyAre.dll
+/PeyAre/PeyAre/obj/Debug/net8.0/refint/PeyAre.dll
+/PeyAre/PeyAre/bin/Debug/net8.0/PeyAre.dll
+/PeyAre/PeyAre/bin/Debug/net8.0/PeyAre.exe
+/PeyAre/PeyAre/bin/Debug/net8.0/PeyAre.pdb
+/PeyAre/PeyAre/obj/Debug/net8.0/apphost.exe
+/PeyAre/PeyAre/obj/Debug/net8.0/PeyAre.AssemblyInfo.cs
+/PeyAre/PeyAre/obj/Debug/net8.0/PeyAre.AssemblyInfoInputs.cache
+/PeyAre/PeyAre/obj/Debug/net8.0/PeyAre.dll
+/PeyAre/PeyAre/obj/Debug/net8.0/PeyAre.pdb
