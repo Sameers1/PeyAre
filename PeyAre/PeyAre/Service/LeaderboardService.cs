@@ -8,7 +8,6 @@ namespace PeyAre.Services
     public class LeaderboardService
     {
         private readonly HttpClient _httpClient;
-        private const string ApiUrl = "https://europe.api.riotgames.com/lor/ranked/v1/leaderboards";
 
         public LeaderboardService(HttpClient httpClient)
         {
@@ -17,16 +16,10 @@ namespace PeyAre.Services
 
         public async Task<LeaderboardResponse> GetLeaderboardAsync(string apiKey)
         {
-            try
-            {
-                var response = await _httpClient.GetFromJsonAsync<LeaderboardResponse>($"{ApiUrl}?api_key={apiKey}");
-                return response;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error fetching leaderboard data: {ex.Message}");
-                return null;
-            }
+            var url = $"https://europe.api.riotgames.com/lor/ranked/v1/leaderboards?api_key={apiKey}";
+            var response = await _httpClient.GetFromJsonAsync<LeaderboardResponse>(url);
+            return response;
         }
     }
+
 }

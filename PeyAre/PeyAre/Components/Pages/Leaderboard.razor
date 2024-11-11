@@ -3,65 +3,66 @@
 @inject LeaderboardService LeaderboardService
 @inject ISnackbar Snackbar
 
-<MudCard Style="padding: 2rem; max-width: 800px; margin: auto; background-color: #1c1c1c;">
-    <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">League of Legends: Legends of Runeterra Leaderboard</MudText>
+<MudLink Href="https://runeterra.ar/lor/leaderboard/europe" Target="_blank"
+         Style="display: inline-block; padding: 0.8rem 1.2rem; background-color: #007BFF; color: white;
+                border-radius: 8px; text-decoration: none; font-weight: bold;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+    League of Runeterra Leaderboard
+</MudLink>
 
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%;" @onclick="FetchLeaderboard">
-        Fetch Leaderboard
+
+<MudCard Style="padding: 2rem; max-width: 600px; margin: auto; background-color: #1c1c1c;">
+    <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">League of Runeterra Ranked Leaderboard</MudText>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%; margin-top: 1rem;" @onclick="FetchLeaderboard">
+        Load Leaderboard
     </MudButton>
 
     @if (leaderboard != null && leaderboard.Any())
     {
-        <MudTable Items="leaderboard" Hover="true" Style="margin-top: 1rem;">
-            <HeaderContent>
-                <MudTh>Name</MudTh>
-                <MudTh>Rank</MudTh>
-                <MudTh>LP</MudTh>
-               
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd>@context.Name</MudTd>
-                <MudTd>@context.Rank</MudTd>
-                <MudTd>@context.Lp</MudTd>
-
-            </RowTemplate>
-        </MudTable>
-    }
-    else if (isLoading)
-    {
-        <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+        <MudList T="Player">
+            @foreach (var player in leaderboard)
+            {
+                <MudListItem>
+                    <MudText Style="color: #D3D3D3; display: inline-block; width: 70%;">@player.Name</MudText>
+                    <MudText Style="color: #D3D3D3; display: inline-block; width: 15%;">Rank: @(player.Rank+1)</MudText>
+                    <MudText Style="color: #D3D3D3; display: inline-block; width: 15%;">LP: @player.Lp</MudText>
+                </MudListItem>
+            }
+        </MudList>
     }
     else
     {
-        <MudText Typo="Typo.body1" Style="color: #D3D3D3; margin-top: 1rem;">No leaderboard data available.</MudText>
+        <MudText Typo="Typo.body1" Style="color: #D3D3D3; margin-top: 1rem;">
+            No leaderboard data available.
+        </MudText>
     }
 </MudCard>
 
 @code {
-    private List<LeaderboardModel> leaderboard;
+    private List<Player> leaderboard;
     private bool isLoading = false;
     private string apiKey = "RGAPI-2477e816-0036-4150-9093-ddee4f6a2c55"; // Replace with your API key
+    
+    
 
     private async Task FetchLeaderboard()
     {
         isLoading = true;
         var response = await LeaderboardService.GetLeaderboardAsync(apiKey);
         
-    // Ensure the response contains data
-        if (response != null && response.Leaderboard != null)
+        if (response?.Players != null)
         {
-            leaderboard = response.Leaderboard; // Extract the Leaderboard list
+            leaderboard = response.Players;
         }
         else
-        {
-            leaderboard = new List<LeaderboardModel>(); // If no data, return an empty list
+        { 
+            leaderboard = new List<Player>();
+           
+            // If no data is found
+            Snackbar.Add("Failed to fetch leaderboard data", Severity.Error);
         }
 
         isLoading = false;
-
-        if (leaderboard == null || leaderboard.Count == 0)
-        {
-            Snackbar.Add("No leaderboard data available", Severity.Warning);
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿public class LeaderboardModel
+﻿public class Player
 {
     public string Name { get; set; }
     public int Rank { get; set; }
@@ -7,5 +7,5 @@
 
 public class LeaderboardResponse
 {
-    public List<LeaderboardModel> Leaderboard { get; set; }
+    public List<Player> Players { get; set; }
 }
