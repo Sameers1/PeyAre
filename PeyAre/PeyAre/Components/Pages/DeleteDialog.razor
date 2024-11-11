@@ -1,0 +1,28 @@
+﻿@using MudBlazor
+@inject IDialogService DialogService
+
+<MudDialog>
+    <MudDialogTitle>Confirm Deletion</MudDialogTitle>
+    <MudDialogContent>
+        <MudText>Are you sure you want to delete this record?</MudText>
+    </MudDialogContent>
+    <MudDialogActions>
+        <MudButton OnClick="CancelDelete" Color="Color.Secondary">Cancel</MudButton>
+        <MudButton OnClick="ConfirmDelete" Color="Color.Error">Delete</MudButton>
+    </MudDialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter] public int Id { get; set; }
+
+    private void ConfirmDelete()
+    {
+        MudDialog.Close(DialogResult.Ok(true)); // Close and return Ok result (confirmed)
+    }
+
+    private void CancelDelete()
+    {
+        MudDialog.Close(DialogResult.Cancel()); // Close and return Cancel result
+    }
+}

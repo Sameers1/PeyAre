@@ -8,7 +8,10 @@ public class ApplicationDbContext : DbContext
         : base(options) { }
 
     // Define DbSets for your entities
-    public DbSet<RepMax> RepMaxes { get; set; }
     public DbSet<GymExerciseLogModel> GymExerciseLogs { get; set; }
+
+    public DbSet<RepMax> RepMaxes { get; set; }
+    public DbSet<ApiData> ApiDatas { get; set; }
+
 
 }

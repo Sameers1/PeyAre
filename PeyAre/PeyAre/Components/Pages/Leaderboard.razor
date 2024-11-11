@@ -1,0 +1,68 @@
+﻿@page "/leaderboard"
+@using PeyAre.Services
+@inject LeaderboardService LeaderboardService
+@inject ISnackbar Snackbar
+
+<MudLink Href="https://runeterra.ar/lor/leaderboard/europe" Target="_blank"
+         Style="display: inline-block; padding: 0.8rem 1.2rem; background-color: #007BFF; color: white;
+                border-radius: 8px; text-decoration: none; font-weight: bold;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+    League of Runeterra Leaderboard
+</MudLink>
+
+
+<MudCard Style="padding: 2rem; max-width: 600px; margin: auto; background-color: #1c1c1c;">
+    <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">League of Runeterra Ranked Leaderboard</MudText>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%; margin-top: 1rem;" @onclick="FetchLeaderboard">
+        Load Leaderboard
+    </MudButton>
+
+    @if (leaderboard != null && leaderboard.Any())
+    {
+        <MudList T="Player">
+            @foreach (var player in leaderboard)
+            {
+                <MudListItem>
+                    <MudText Style="color: #D3D3D3; display: inline-block; width: 70%;">@player.Name</MudText>
+                    <MudText Style="color: #D3D3D3; display: inline-block; width: 15%;">Rank: @(player.Rank+1)</MudText>
+                    <MudText Style="color: #D3D3D3; display: inline-block; width: 15%;">LP: @player.Lp</MudText>
+                </MudListItem>
+            }
+        </MudList>
+    }
+    else
+    {
+        <MudText Typo="Typo.body1" Style="color: #D3D3D3; margin-top: 1rem;">
+            No leaderboard data available.
+        </MudText>
+    }
+</MudCard>
+
+@code {
+    private List<Player> leaderboard;
+    private bool isLoading = false;
+    private string apiKey = "RGAPI-2477e816-0036-4150-9093-ddee4f6a2c55"; // Replace with your API key
+    
+    
+
+    private async Task FetchLeaderboard()
+    {
+        isLoading = true;
+        var response = await LeaderboardService.GetLeaderboardAsync(apiKey);
+        
+        if (response?.Players != null)
+        {
+            leaderboard = response.Players;
+        }
+        else
+        { 
+            leaderboard = new List<Player>();
+           
+            // If no data is found
+            Snackbar.Add("Failed to fetch leaderboard data", Severity.Error);
+        }
+
+        isLoading = false;
+    }
+}

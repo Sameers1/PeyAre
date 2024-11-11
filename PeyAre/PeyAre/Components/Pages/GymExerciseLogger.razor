@@ -1,36 +1,82 @@
 ﻿@page "/log-exercise"
 @using PeyAre.Data
 @using PeyAre.Models
-
-@inject ApplicationDbContext dbContext
 @using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext _context
 
 
-<h3>Log Gym Exercise</h3>
 
-<EditForm Model="@_exerciseLog" OnValidSubmit="HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+<div class="exercise-log-container">
+    <!-- Exercise Logging Card -->
+    <MudCard Class="mud-elevation-4 custom-card">
+        <MudCardContent>
+            <MudText Typo="Typo.h5" Class="center-text">Log Your Exercise</MudText>
 
-    <MudTextField @bind-Value="_exerciseLog.ExerciseName" Label="Exercise Name" Required="true" />
-    <MudTextField @bind-Value="_exerciseLog.Sets" Label="Sets" Required="true" Type="number" />
-    <MudTextField @bind-Value="_exerciseLog.Reps" Label="Reps" Required="true" Type="number" />
-    <MudTextField @bind-Value="_exerciseLog.Weight" Label="Weight" Required="true" Type="number" />
-    <MudDatePicker @bind-Value="_exerciseLog.Date" Label="Date" Required="true" />
-    <MudTextField @bind-Value="_exerciseLog.Notes" Label="Notes" />
+            <!-- Exercise Name -->
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.ExerciseName" Label="Exercise Name" FullWidth Margin="Margin.Normal" />
+                </MudItem>
 
-    <MudButton Type="Submit" Color="Color.Primary">Save Exercise</MudButton>
-</EditForm>
+                <!-- Sets -->
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.Sets" Label="Sets" Type="number" FullWidth Margin="Margin.Normal" />
+                </MudItem>
+
+                <!-- Reps -->
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.Reps" Label="Reps" Type="number" FullWidth Margin="Margin.Normal" />
+                </MudItem>
+
+                <!-- Weight -->
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="exerciseLog.Weight" Label="Weight Lifted (kg)" Type="number" FullWidth Margin="Margin.Normal" />
+                </MudItem>
+
+                <!-- Notes -->
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="exerciseLog.Notes" Label="Notes" FullWidth Margin="Margin.Normal" />
+                </MudItem>
+            </MudGrid>
+
+            <!-- Save Button -->
+            <MudButton OnClick="SaveExerciseLog" Color="Color.Primary" Variant="Variant.Filled" FullWidth Class="submit-button">
+                Save Exercise Log
+            </MudButton>
+
+            <!-- Status Message -->
+            <MudText Typo="Typo.body2" Class="status-message">@statusMessage</MudText>
+        </MudCardContent>
+    </MudCard>
+</div>
 
 @code {
-    private readonly GymExerciseLogModel _exerciseLog = new GymExerciseLogModel();
+    private GymExerciseLogModel exerciseLog = new GymExerciseLogModel();
+    private string statusMessage = string.Empty;
+    private List<GymExerciseLogModel> GymExerciseLogModels;
 
-    private async Task HandleValidSubmit()
+
+    protected override async Task OnInitializedAsync()
     {
-        // Add the exercise log to the database
-        dbContext.GymExerciseLogs.Add(_exerciseLog);
-        await dbContext.SaveChangesAsync();
+        GymExerciseLogModels = await _context.GymExerciseLogs.ToListAsync();
+    }
 
-        // Optionally, clear the form or show a success message
+
+    // Method to handle saving the exercise log
+    private async Task SaveExerciseLog()
+    {
+        if (string.IsNullOrEmpty(exerciseLog.ExerciseName) || exerciseLog.Sets <= 0 || exerciseLog.Reps <= 0 || exerciseLog.Weight <= 0)
+        {
+            statusMessage = "Please fill out all fields with valid values.";
+        }
+        else
+        {
+            exerciseLog.Date = DateTime.UtcNow;
+            _context.GymExerciseLogs.Add(exerciseLog);
+            await _context.SaveChangesAsync();
+
+            statusMessage = "Exercise log saved successfully!";
+            exerciseLog = new GymExerciseLogModel(); // Reset the form after saving
+        }
     }
 }
