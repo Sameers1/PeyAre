@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using PeyAre.Components;
+using PeyAre.Services;
 
 
 namespace PeyAre
@@ -14,6 +15,8 @@ namespace PeyAre
             // Add MudBlazor services
             builder.Services.AddMudServices();
             builder.Services.AddHttpClient();
+            builder.Services.AddSingleton<LeaderboardService>();
+
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();

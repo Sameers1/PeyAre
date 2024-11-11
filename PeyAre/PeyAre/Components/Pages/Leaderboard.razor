@@ -1,0 +1,67 @@
+﻿@page "/leaderboard"
+@using PeyAre.Services
+@inject LeaderboardService LeaderboardService
+@inject ISnackbar Snackbar
+
+<MudCard Style="padding: 2rem; max-width: 800px; margin: auto; background-color: #1c1c1c;">
+    <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">League of Legends: Legends of Runeterra Leaderboard</MudText>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%;" @onclick="FetchLeaderboard">
+        Fetch Leaderboard
+    </MudButton>
+
+    @if (leaderboard != null && leaderboard.Any())
+    {
+        <MudTable Items="leaderboard" Hover="true" Style="margin-top: 1rem;">
+            <HeaderContent>
+                <MudTh>Name</MudTh>
+                <MudTh>Rank</MudTh>
+                <MudTh>LP</MudTh>
+               
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.Name</MudTd>
+                <MudTd>@context.Rank</MudTd>
+                <MudTd>@context.Lp</MudTd>
+
+            </RowTemplate>
+        </MudTable>
+    }
+    else if (isLoading)
+    {
+        <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+    }
+    else
+    {
+        <MudText Typo="Typo.body1" Style="color: #D3D3D3; margin-top: 1rem;">No leaderboard data available.</MudText>
+    }
+</MudCard>
+
+@code {
+    private List<LeaderboardModel> leaderboard;
+    private bool isLoading = false;
+    private string apiKey = "RGAPI-2477e816-0036-4150-9093-ddee4f6a2c55"; // Replace with your API key
+
+    private async Task FetchLeaderboard()
+    {
+        isLoading = true;
+        var response = await LeaderboardService.GetLeaderboardAsync(apiKey);
+        
+    // Ensure the response contains data
+        if (response != null && response.Leaderboard != null)
+        {
+            leaderboard = response.Leaderboard; // Extract the Leaderboard list
+        }
+        else
+        {
+            leaderboard = new List<LeaderboardModel>(); // If no data, return an empty list
+        }
+
+        isLoading = false;
+
+        if (leaderboard == null || leaderboard.Count == 0)
+        {
+            Snackbar.Add("No leaderboard data available", Severity.Warning);
+        }
+    }
+}
