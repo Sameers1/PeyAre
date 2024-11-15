@@ -11,7 +11,7 @@
     <MudText Typo="Typo.h5" Style="color: #FFFFFF; margin-bottom: 1rem;">Age Calculator</MudText>
 
     <MudTextField @bind-Value="userName" Label="Enter your name" Variant="Variant.Filled"
-                  FullWidth="true" Style="color: #FFFFFF; background-color: #2a2a2a;" />
+    FullWidth="true" Style="color: #FFFFFF; background-color: #2a2a2a;" />
 
     <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="width: 100%; margin-top: 1rem;" @onclick="GetAge">
         Get Age
@@ -68,6 +68,7 @@
     private string statusMessage;
     private List<ApiData> savedAgeData = new List<ApiData>();
     private string t = "Additional Info";  // Example string value
+    private string apikey = "b01e7377fb979ab85788c5c7b782d561";
 
 
     protected override async Task OnInitializedAsync()
@@ -81,7 +82,7 @@
 
         try
         {
-            var response = await Http.GetFromJsonAsync<ApiData>($"https://api.agify.io?name={userName}");
+            var response = await Http.GetFromJsonAsync<ApiData>($"https://api.agify.io?name={userName}&apiKey=YourApiKeyHere");
             age = response?.Age;
         }
         catch (Exception ex)

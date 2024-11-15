@@ -1,12 +1,16 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\css\\MainHeading.css",
+      "Id": "C:\\Users\\Administrator\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\css\\MainHeading.css",
       "PackagePath": "staticwebassets\\css\\MainHeading.css"
     },
     {
-      "Id": "C:\\Users\\Sameer\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\Administrator\\source\\repos\\PeyAre\\PeyAre\\PeyAre\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PeyAre.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PeyAre.Microsoft.AspNetCore.StaticWebAssets.props",
