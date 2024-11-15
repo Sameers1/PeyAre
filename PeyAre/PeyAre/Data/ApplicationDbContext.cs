@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using PeyAre.Data;
 using PeyAre.Models;
 
@@ -12,6 +13,8 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<RepMax> RepMaxes { get; set; }
     public DbSet<ApiData> ApiDatas { get; set; }
+    public DbSet<ImageModel> Images { get; set; }
+
 
 
 }

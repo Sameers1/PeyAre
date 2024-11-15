@@ -341,7 +341,6 @@ C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Micros
 C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Microsoft.Rest.ClientRuntime.dll
 C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Microsoft.Rest.ClientRuntime.Azure.dll
 C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Google.Protobuf.dll
 C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Grpc.Core.Api.dll
 C:\Users\Administrator\source\repos\PeyAre\PeyAre\PeyAre\bin\Debug\net8.0\Grpc.Net.Client.dll

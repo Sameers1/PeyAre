@@ -1,0 +1,35 @@
+﻿@page "/upload-image"
+@using PeyAre.Models
+@inject HttpClient Http
+@using MudBlazor
+@using Microsoft.AspNetCore.Components.Forms
+
+
+<MudFileUpload T="IBrowserFile" OnChange="OnImageUpload" />
+
+
+<MudImage Src="@imageSource" Alt="Uploaded Image" />
+
+@code {
+    private string imageSource;
+
+    private async Task OnImageUpload(IBrowserFile file)
+    {
+        var imageData = await file.RequestImageFileAsync("image/png", 500, 500);
+        var buffer = new byte[imageData.Size];
+        await imageData.OpenReadStream().ReadAsync(buffer);
+        await Http.PostAsJsonAsync("api/image/upload-image", buffer);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadImage();
+    }
+
+
+    private async Task LoadImage()
+    {
+        var image = await Http.GetFromJsonAsync<ImageModel>("api/image/get-image");
+        imageSource = image != null ? $"data:image/png;base64,{Convert.ToBase64String(image.ImageData)}" : string.Empty;
+    }
+}
