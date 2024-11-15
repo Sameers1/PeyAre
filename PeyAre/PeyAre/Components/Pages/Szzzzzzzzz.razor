@@ -1,4 +1,4 @@
-﻿@page "/Nation"
+﻿@* @page "/Nation"
 @using PeyAre.Service
 @using PeyAre.Models
 @inject PredictNationService PredictNationService
@@ -41,3 +41,4 @@
         return countries?.OrderByDescending(c => c.Probability).FirstOrDefault();
     }
 }
+ *@

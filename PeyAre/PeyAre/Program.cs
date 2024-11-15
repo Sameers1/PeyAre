@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using PeyAre.Components;
-using PeyAre.Service;
 using PeyAre.Services;
 
 
@@ -12,12 +11,13 @@ namespace PeyAre
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.AddServiceDefaults();
 
             // Add MudBlazor services
             builder.Services.AddMudServices();
             builder.Services.AddHttpClient();
             builder.Services.AddSingleton<LeaderboardService>();
-            builder.Services.AddScoped<PredictNationService>();
+
 
 
             // Add services to the container.
@@ -27,7 +27,16 @@ namespace PeyAre
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
-           
+
+            app.MapDefaultEndpoints();
+
+            //app.MapGet("/api/nationalize/{name}", async (string name) =>
+            //{
+            //    var httpClient = app.Services.GetRequiredService<HttpClient>();
+            //    var response = await httpClient.GetFromJsonAsync<dynamic>($"https://api.nationalize.io?name={name}");
+            //    return Results.Ok(response);
+            //});
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

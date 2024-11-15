@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeyAre", "PeyAre\PeyAre.csproj", "{78BF46F5-B470-4A71-B914-888DF0D20B42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeyAre.AppHost", "PeyAre.AppHost\PeyAre.AppHost.csproj", "{B4F23F6E-F696-4E65-B036-D42C4F81CF7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeyAre.ServiceDefaults", "PeyAre.ServiceDefaults\PeyAre.ServiceDefaults.csproj", "{47971218-A242-4D39-A37B-E1DD9A582B62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{78BF46F5-B470-4A71-B914-888DF0D20B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78BF46F5-B470-4A71-B914-888DF0D20B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78BF46F5-B470-4A71-B914-888DF0D20B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F23F6E-F696-4E65-B036-D42C4F81CF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F23F6E-F696-4E65-B036-D42C4F81CF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F23F6E-F696-4E65-B036-D42C4F81CF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F23F6E-F696-4E65-B036-D42C4F81CF7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47971218-A242-4D39-A37B-E1DD9A582B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47971218-A242-4D39-A37B-E1DD9A582B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47971218-A242-4D39-A37B-E1DD9A582B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47971218-A242-4D39-A37B-E1DD9A582B62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

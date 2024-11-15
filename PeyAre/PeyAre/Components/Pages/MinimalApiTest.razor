@@ -1,0 +1,48 @@
+﻿@* @page "/Nation"
+@inject HttpClient Http
+
+<h3>Nationality Prediction</h3>
+<p>Enter a name to predict nationality:</p>
+<input @bind="userName" />
+<button @onclick="FetchPrediction">Get Prediction</button>
+
+<p>@predictionMessage</p>
+
+
+@code {
+    private string userName;
+    private string predictionMessage;
+
+    private async Task FetchPrediction()
+    {
+        if (!string.IsNullOrEmpty(userName))
+        {
+            try
+            {
+                var result = await Http.GetFromJsonAsync<PredictionResponse>($"https://api.agify.io/?name[]={userName}");
+
+                if (result?.Country != null && result.Country.Any())
+                {
+                    var countryList = new List<string>();
+                    foreach (var country in result.Country)
+                    {
+                        countryList.Add($"{country.CountryId} ({country.Probability:F2})");
+                    }
+
+                    predictionMessage = $"Predicted countries: {string.Join(", ", countryList)}";
+                }
+                else
+                {
+                    predictionMessage = "No prediction found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                predictionMessage = $"Error: {ex.Message}";
+            }
+        }
+    }
+}
+
+
+ *@
