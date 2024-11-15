@@ -14,12 +14,12 @@ namespace PeyAre.Service
             _httpClient = httpClient;
         }
 
-        public async Task<PredictionResponse> GetPredictionResponseAsync(string apiKey)
+        public async Task<List<NameData>> GetPredictionResponseAsync(string apiKey)
         {
             var url = $"https://api.nationalize.io?name=johnson&apikey={apiKey}";
-            var response = await _httpClient.GetFromJsonAsync<PredictionResponse>(url);
-            return response;
+            return await _httpClient.GetFromJsonAsync<List<NameData>>(url);
         }
+
 
 
 

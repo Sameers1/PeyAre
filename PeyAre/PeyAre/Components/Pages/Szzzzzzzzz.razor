@@ -1,10 +1,7 @@
 ﻿@page "/Nation"
 @using PeyAre.Service
-
-@inject PredictNationService PredictNationService
 @using PeyAre.Models
-@inject HttpClient Http
-
+@inject PredictNationService PredictNationService
 
 <MudGrid>
     @if (nameDataList != null)
@@ -29,9 +26,18 @@
     private List<NameData> nameDataList;
     private string apiKey = "b01e7377fb979ab85788c5c7b782d561"; // Replace with your API key
 
-    private async Task FetchNation()
+    protected override async Task OnInitializedAsync()
     {
-        var response = await 
+        await FetchNation();
     }
 
+    private async Task FetchNation()
+    {
+        nameDataList = await PredictNationService.GetPredictionResponseAsync(apiKey) ?? new List<NameData>();
+    }
+
+    private CountryProbability GetHighestProbabilityCountry(List<CountryProbability> countries)
+    {
+        return countries?.OrderByDescending(c => c.Probability).FirstOrDefault();
+    }
 }
